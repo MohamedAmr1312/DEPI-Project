@@ -1,0 +1,906 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{quote}
+\textbf{Movie recommendation system using machine learning.}
+
+\textbf{Authors:}
+\end{quote}
+
+\textbf{Seif Eldin Hussein Mostafa Ali E-mail address:
+seif.hussin11@gmail.com}
+
+\textbf{Khaled Waheed Mohamed Ali E-mail address: waheed33603@gmail.com}
+
+\textbf{github
+https://github.com/Seifhussein1/Movie-Recommendation-System.git}
+
+\emph{\textbf{OCTOBER SIX UNIVERSITY}}
+
+\emph{\textbf{FACULTY OF INFORMATION SYSTEMS AND COMPUTER SCIENCE (AI
+DEPARTMENT)}}
+
+\hypertarget{a-r-t-i-c-l-e-i-n-f-o}{%
+\section{\texorpdfstring{a \textsc{r} \textsc{t} i c \textsc{l} e i n f
+o}{a r t i c l e i n f o}}\label{a-r-t-i-c-l-e-i-n-f-o}}
+
+\begin{quote}
+\emph{Keywords:}
+
+Cosine similarity
+
+Movie recommendation Naïve Bayes
+
+Sentiment analysis Support vector machine KNN
+
+Bagging
+
+Decision Tree
+
+Gradient Boosting
+
+Perceptron
+
+logistic Regression
+
+Extra Trees Classifier
+
+Random Forest
+
+Ada Boost Classifier
+\end{quote}
+
+\hypertarget{a-b-s-t-r-a-c-t}{%
+\section{\texorpdfstring{\hfill\break
+a b s \textsc{t} \textsc{r} a c
+\textsc{t}}{ a b s t r a c t}}\label{a-b-s-t-r-a-c-t}}
+
+In the modern world, where technology is at the forefront of every
+industry, there has been an overload of information and data. Thus, a
+recommendation system comes in handy to deal with this large volume of
+data and filter out the useful information which is fast and relevant to
+the user's choice. This paper describes an approach to a movie
+recommendation system using Cosine Similarity to recommend similar
+movies based on the one chosen by the user. Although the existing
+recommendation systems get the job done, it does not justify if the
+movie is worth spending time on. To enhance the user experience, this
+system performs sentiment analysis on the reviews of the movie chosen
+using machine learning. Two of the supervised machine learning
+algorithms, Naïve Bayes (NB) Classifier and Support Vector Machine (SVM)
+Classifier, are used to increase the accuracy and efficiency. This paper
+also gives a comparison between NB and SVM on the basis of parameters
+like Accuracy, Precision, Recall, and F1 Score. The accuracy score of
+SVM came out to be 98.63\% whereas the accuracy score of NB is 97.33\%.
+Thus, SVM outweighs NB and proves to be a better fit for Sentiment
+Analysis. Additionally, we employed a diverse set of 10 classifiers to
+develop a robust movie recommendation system. Our analysis revealed that
+the K-Nearest Neighbors (KNN) classifier achieved the lowest accuracy of
+96.749\%, while the AdaBoostClassifier demonstrated the highest accuracy
+of 99.061\%. Furthermore, we explored the combined performance of
+classifiers by pairing them and evaluating their effectiveness using a
+voting ensemble approach. Among the combinations, the KNN and Support
+Vector Classifier (SVC) pair exhibited the minimum accuracy of 97.471\%.
+Conversely, the AdaBoostClassifier and ExtraTreesClassifier pair
+demonstrated the highest accuracy of 99.205\%. Additionally, utilizing
+three classifiers, 'Decision Tree', 'ExtraTreesClassifier', and
+'AdaBoostClassifier', showcases remarkable performance, with
+AdaBoostClassifier achieving a maximum accuracy of 99.422\%. These
+findings underscore the significance of ensemble methods in enhancing
+the recommendation system's performance.
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+\begin{quote}
+Since its invention, the Internet has grown rapidly and continues to
+grow each day. The abundance of information available online, has made
+it a strenuous task to access the right information quickly and easily
+\protect\hyperlink{_bookmark21}{{[}1{]}}. Fortunately, this problem can
+be solved with the help of recommendation systems.
+
+Recommendation systems are used extensively today and have found
+applications in multiple industries such as e-commerce, retail,
+bank-ing, entertainment etc. These systems collect and auto-analyse the
+user data to generate personalised recommendations for the users
+\protect\hyperlink{_bookmark22}{{[}2{]}}. The most common approaches to
+implement recommendation systems are Content-based Filtering (CBF),
+Collaborative Filtering (CF) and Hybrid Filtering
+\protect\hyperlink{_bookmark23}{{[}3{]}}. CBF is an approach that is
+used to analyse the content of each item and recommend other items that
+have similar characteristics. CF addresses some of the limitations of
+CBF and provides recommenda- tions by comparing the similarities between
+the users and the items. It uses the knowledge of the user's previous
+preferences as well as the pref- erences of other similar users to
+generate a recommendation. Many rec- ommendation systems are also known
+to use the Hybrid-ﬁltering tech- nique combining the features of both
+CBF and CF methods \protect\hyperlink{_bookmark24}{{[}4{]}}.
+
+A movie's popularity is based on the type of reviews it gets from the
+
+audience . These reviews are also responsible for aﬀecting the choice of
+other users. Users are more likely to choose a movie that was
+\end{quote}
+
+preferred by most people rather than a movie that was largely disliked
+\protect\hyperlink{_bookmark25}{{[}5{]}}. Analyzing these reviews,
+ignoring the reviews that contain misleading information also adds to
+the diﬃculty of decision-making
+\protect\hyperlink{_bookmark26}{{[}6{]}}. Sentiment Analysis provides a
+solution to this problem.
+
+\begin{quote}
+We apply 10 classifiers ' KNN', 'SVC', `Bagging', `Decision
+Tree',`GradientBoostingClassifier', `Perceptron' , `logistic Regression'
+,`ExtraTreesClassifier' , `Random Forest', `AdaBoostClassifier'
+
+Sentiment Analysis facilitates a way to use NLP (natural language
+processing) to extract information from a textual source and classify
+the statement or word or document as positive or negative. It is very
+useful to understand the opinion of the author and indicate the user
+experience. Opinion mining uses the concepts of data mining to extract
+and clas- sify the opinions expressed in various online forums or
+platforms. This enables better understanding of the user's sentiment or
+feeling towards
+
+a particular subject matter \protect\hyperlink{_bookmark27}{{[}7{]}}.
+
+The paper presents a system that not only recommends movies to the users
+but also analyses and classiﬁes the reviews into positive or negative.
+The movie recommendation part is performed using Cosine Similarity and a
+comparison is drawn between SVM and the NB algo- rithm to perform the
+Sentiment Analysis of the reviews.
+
+The objective of the study is to deal with the large volume of data and
+ﬁlter useful information, recommend similar movies based on user's
+choice and perform Sentimental Analysis on the reviews of the movie
+chosen.
+
+we are modifying in preprocessing in converting textual data into
+numerical representations (TF-IDF vectors) and then calculate the
+similarity between documents based on their TF-IDF representations using
+cosine similarity. In addition to utilizing 10 classifiers, this paper
+evaluates their performance individually. The results indicate that the
+K-Nearest Neighbors (KNN) classifier achieved the lowest accuracy of
+96.749\%, while the AdaBoostClassifier demonstrated the highest accuracy
+of 99.061\%. Furthermore, combining different classifiers in pairs using
+a voting ensemble approach revealed interesting insights. For instance,
+the combination of KNN and SVC yielded the minimum accuracy of 97.471\%,
+whereas the combination of AdaBoostClassifier and
+GradientBoostingClassifier achieved the highest accuracy of 99.205\%.
+Additionally, utilizing three classifiers, 'Decision Tree',
+'ExtraTreesClassifier'and'AdaBoostClassifier',showcases remarkable
+performance, with AdaBoostClassifier achieving a maximum accuracy of
+99.422\%.so the results of what we do is better than the old one, then
+we recommend to use our methodologies.
+
+The paper follows the given structure;
+\protect\hyperlink{related-works}{Section 2} covers the Literature
+Review. \protect\hyperlink{methodology}{Section 3}, discusses the
+Methodology which includes the dataset, the pre-processing of data,
+mining of data for movie recommendation, machine learning for sentiment
+analysis and ﬁnally, the performance report.
+\protect\hyperlink{_bookmark10}{Section 4} comprises the results and
+discussions. Section 5 contains pseudocode. Representing workflow in
+\protect\hyperlink{flowchart}{Section 6} using flowchart. Finally, the
+conclusion can be found in \protect\hyperlink{conclusion}{Section 7} And
+References in \protect\hyperlink{references}{Section 8}.
+\end{quote}
+
+Fig. 1. Flowchart of proposed method.
+
+\begin{quote}
+\includegraphics[width=6.52966in,height=4.14394in]{media/image1.jpeg}
+\end{quote}
+
+\hypertarget{related-works}{%
+\subsection{Related works}\label{related-works}}
+
+\begin{quote}
+In this section, the various existing methods and the drawbacks of the
+existing work are discussed in detail.
+
+In this paper, the authors propose a hybrid approach that combines a
+content-based approach with genre correlation to implement a recom-
+mendation system. This system takes into account both the user ratings
+of the movie as well as their genres while making recommendations to the
+user \protect\hyperlink{_bookmark24}{{[}4{]}}.
+
+In this paper, a new similarity algorithm is introduced. This is called
+User Proﬁle Correlation-based Similarity (UPCSim) and it allows other
+user behavioral data to inﬂuence the accuracy of the recommendation. It
+calculates the weights of similarity which depend on the user's rating
+and the user's behaviour value and classiﬁes the preferences of the user
+using K-nearest Neighbours algorithm. While this approach shows a de-
+crease in the Mean Absolute Error (1.64\%) and the Root Mean Square
+Error (1.4\%), it requires more computation time
+\protect\hyperlink{_bookmark28}{{[}8{]}}.
+
+The authors discuss the implementation of a movie recommendation system
+using two algorithms, Cosine Similarity and K-Nearest Neigh- bours. The
+movie recommendation is done using the cosine similarity algorithm. A
+normalized popular score is used to obtain the function for computing
+distance and the K-Nearest Neighbours algorithm is applied to enhance
+the accuracy \protect\hyperlink{_bookmark29}{{[}9{]}}.
+
+In this paper, a hybrid recommendation system is proposed that uses
+sentiment analysis of user tweets for movies to obtain a sentiment score
+to improve the recommendation made to the users using a weighted fusion
+score method \protect\hyperlink{_bookmark30}{{[}10{]}}.
+
+This paper implements ﬁve machine learning classiﬁers -- Multino- mial
+Naïve Bayes, SVM, Decision Tree, Bernoulli Naïve Bayes, Maximum Entropy
+are applied on the pre-processed data containing feature vectors to
+classify the movie reviews data
+\protect\hyperlink{_bookmark31}{{[}11{]}}.
+
+Considering the utilization of 10 classifiers, this paper assesses their
+individual accuracies. Notably, the K-Nearest Neighbors (KNN) classifier
+achieves the lowest accuracy of 96.749\%, while the AdaBoostClassifier
+demonstrates the highest accuracy of 99.061\%. Furthermore, through the
+combination of various classifiers in pairs and employing a voting
+ensemble approach, insights into performance metrics are gained. For
+instance, the combination of KNN and SVC yields a minimum accuracy of
+97.471\%, while the combination of AdaBoostClassifier and
+GradientBoostingClassifier achieves the highest accuracy of 99.205\%.
+\end{quote}
+
+\hypertarget{methodology}{%
+\subsection{Methodology}\label{methodology}}
+
+\begin{quote}
+Under this section, the methods used for the execution of the study and
+implementation of the algorithms have been discussed. The diagram below
+shows the ﬂowchart of the methodology.
+
+\protect\hyperlink{_bookmark3}{Fig. 1} explains the methodology that has
+been used in the project. The study has used a dataset to train the
+cosine similarity model which is used for recommending movies. Then
+using another dataset, Naïve Bayes (NB) and Support Vector Machine (SVM)
+Classiﬁer for Sentiment
+
+Analysis has been trained. Now a movie name is taken as an input and
+sent to the movie recommendation model to predict similar movies.
+Through web scraping from the IMDB site, the reviews of that movie are
+obtained and sent to the Sentiment Analysis model for classifying the
+reviews as positive or negative. \textbf{We mainly using 10 classifiers
+`Bagging', `Random Forest', `Decision Tree', `Perceptron', `SVC',`KNN',
+`Logistic Regression',}
+
+\textbf{`ExtraTreesClassifier',`GradientBoostingClassifier'and
+`AdaBoostClassifier'}
+
+\textbf{And we combine two classifiers and three classifiers.}
+
+1 Dataset
+
+Three datasets have been used for study. 2 of them are for Movie
+Recommendation and 1 is for Sentiment Analysis. The ones used for
+recommendation are `tmdb\_5000\_movies.csv', `tbmd\_5000\_credits.csv'
+and the one used for sentiment analysis is `reviews.t\textsc{x}t'. The 2
+datasets used in movie recommendation are then merged to form a single
+data set and the columns kept under it are `movie\_id', `title' and
+`tags'.
+
+The reviews data set has only 2 columns, one for the `reviews' and other
+for the `comments'. The positive comments have been labelled as 1 and
+the negative ones have been labelled as 0. There are 3943 positive
+comments and 2975 negative comments .
+
+1 Data pre- processing
+
+After merging the 2 datasets into a single dataset, only the essential
+columns such as `movie\_id', `title'. `overview', `genres', `keywords','
+cast' and `crew' are kept, rest are removed from the dataset .
+
+Then using Abstract Syntax trees, the columns of `genres', `keywords',
+`cast', `crew' have been reﬁned.
+
+Furthermore, these columns have been combined under `tags'. Then using
+the count vectorizer, the column `tags' is tokenised. Tokenising means
+to divide the sentences into words. Here the pre-processing for Movie
+Recommendation comes to an end.
+
+The pre-processing for Sentiment Analysis requires Natural Language Tool
+Kit (NLTK). The NLTK is a leading platform for building Python programs
+to work with human language data.
+
+This is a standard python library used for natural language process- ing
+and computational linguistics. Using this library, the stop words are
+downloaded. Stop Words are the usually used words in any language.
+E\textsc{x}amples of such words include `a', `an', `the', `if', `or'.
+They are used in Text Mining and Natural Language Processing (NLP) to
+eliminate such words as they carry very little useful information. Then
+using the Tﬁd- fVectoriser, the column of Comments is tokenised.
+
+Now the Data Pre-processing of the datasets ends here.
+
+The \protect\hyperlink{_bookmark6}{Fig. 2} shows the dataset used for
+Movie Recommendation, which has the `movie\_id', `title' and `tags'.
+
+The \protect\hyperlink{_bookmark7}{Fig. 3} shows the dataset for
+sentiment analysis, has 2 columns, one for the `comments' and other for
+the `reviews'.
+
+1 Data mining for movie recommendation
+
+\includegraphics[width=4.66667in,height=1.19714in]{media/image2.png}\protect\hypertarget{_bookmark6}{}{}\textbf{Fig.
+2.} Final dataset being used for movie recommen- dation.
+
+\includegraphics[width=4.66667in,height=2.05714in]{media/image3.png}\protect\hypertarget{_bookmark7}{}{}\textbf{Fig.
+3.} Dataset for sentiment analysis.
+
+Using the sklearn library in Python, the Cosine Similarity algorithm is
+used.
+
+After the user is prompted to enter a movie, the algorithm provides 5
+other movies like the one used as an input by the user.
+
+In cosine similarity, vectors are taken as the data objects in data
+sets, when deﬁned in a product space, the similarity is ﬁgured out. The
+smaller this distance, the higher the similarity, but the larger the
+dis- tance, the lower the similarity. Cosine similarity is a measure
+that helps
+
+\protect\hyperlink{_bookmark11}{Eq. (2}) calculates function for two
+points X and X' computes the similarity or how close they are to each
+other.
+
+`𝜎' is the variance and the hyperparameter. \textbar\textbar X --
+X'\textbar\textbar{} is the Euclidean (L\textsubscript{2}-norm) Distance
+between two points X and X'.
+
+The NB Algorithm uses conditional probability to classify the given data
+set. Bayes theorem is used for the computation and used class levels
+represented as feature values or vectors of predictors for classiﬁcation
+\protect\hyperlink{_bookmark32}{{[}12{]}}.
+
+\protect\hypertarget{_bookmark8}{}{}to ﬁnd out how similar data objects
+are, regardless of size. Mathemat- ically, it is the cosine of the angle
+between two vectors projected in a
+
+𝑃 (𝐴\protect\hyperlink{_bookmark8}{\textbar{}}𝐵) = 𝑃 (𝐵\textbar 𝐴)𝑃 (𝐴)
+
+(3)
+
+multi-dimensional space \protect\hyperlink{_bookmark29}{{[}9{]}}.
+
+\protect\hyperlink{_bookmark8}{Eq. (3}) calculates the conditional
+probability of event A such that
+
+\protect\hypertarget{_bookmark9}{}{}𝐶𝑜𝑠 𝜃 =
+
+\uline{𝑎⃖⃗, 𝑏⃖⃗} =
+
+‖ ‖
+
+∑𝑛 𝑎\textsubscript{𝑖}𝑏\textsubscript{𝑖}
+
+√
+
+(1)
+
+B has already occurred, and this is used to for calculation in the NB
+\end{quote}
+
+𝑎⃖⃗ 𝑏⃖⃗
+
+\begin{quote}
+∑𝑛 𝑎2 ∑𝑛 𝑏2
+
+classiﬁer.
+
+The angle between two vectors determines its direction and is mea-
+
+sured in `𝜃'. This angle 𝜃 can be calculated by using
+\protect\hyperlink{_bookmark9}{Eq. (1)}.
+
+When 𝜃 = 0 °, the `\textsc{x}` and` y` vectors overlap and prove to be
+similar. When 𝜃 = 90 °, the `\textsc{x}` and` y` vectors are therefore
+dissimilar.
+
+1 Machine learning for sentiment analysis
+
+As discussed earlier, 2 algorithms have been used, SVC and NB. The data
+set is split into testing set and training set, the testing set is
+
+0.20 and training size is 0.80.
+
+After this the 2 models are ﬁtted. To increase the accuracy of both the
+models, hyperparameter tuning is applied on both the models.
+
+SVC is a supervised algorithm in the machine learning domain used
+\protect\hypertarget{_bookmark10}{}{}for both classiﬁcation and
+regression. It classiﬁes the info points by ﬁnd- ing a hyperplane in an
+N-dimensional space \protect\hyperlink{_bookmark32}{{[}12{]}}. The
+hyperplane is simply a line if the amount of input features is 2,
+however it's 2-D hy- perplane if the amount of input features is three.
+
+Radial Basis Function Kernel was used in the model which is a type of
+Non-linear SVM \protect\hyperlink{_bookmark33}{{[}13{]}}.
+
+It is referred to as RBF kernel. Metric squared Euclidean distance is
+used for distance. It is used to draw completely non-linear hyperplanes.
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{quote}
+  Gaussian,
+  \end{quote}
+\item
+  \begin{quote}
+  Multinomial,
+  \end{quote}
+\item
+  \begin{quote}
+  Bernoulli.
+  \end{quote}
+\end{enumerate}
+
+\begin{quote}
+The proposed system uses the multinomial NB model, which pre- dicts the
+badge of a text such as a piece of email or newspaper article. The
+probability of each badge is calculated for a given sample and then
+badge with the highest probability is given as output.
+
+Since this algorithm is mainly used for natural language processing and
+text data analysis it was a perfect choice for sentiment analysis of
+movie reviews
+\end{quote}
+
+\hypertarget{results}{%
+\subsection{Results}\label{results}}
+
+\begin{quote}
+Using the Cosine Similarity algorithm, prediction of movies like the
+ones input by the user can be made.
+
+The \protect\hyperlink{_bookmark12}{Fig. 4} shows the Cosine Similarity
+matri\textsc{x} of the values in the dataset.
+
+The \protect\hyperlink{_bookmark12}{Fig. 5} shows that a negative
+comment has been classiﬁed as 0 by the NB classiﬁer.
+
+The \protect\hyperlink{_bookmark12}{Fig. 6} shows that a negative
+comment is classiﬁed as 0 by the
+
+\protect\hypertarget{_bookmark11}{}{}𝐾(𝑋, 𝑋\textsuperscript{′})
+
+= 𝑒𝑥𝑝(−
+
+𝑋 − 𝑋′
+
+2𝜎2
+
+(2)
+
+SVC.
+
+An integral part of the study was comparison between the 2 algo- rithms
+as well.
+
+\includegraphics[width=4.66788in,height=1.82333in]{media/image4.png}
+\end{quote}
+
+\includegraphics[width=4.67287in,height=1.43333in]{media/image5.jpeg}\includegraphics[width=4.67287in,height=1.43333in]{media/image6.jpeg}
+
+\begin{quote}
+\protect\hypertarget{_bookmark12}{}{}\textbf{Table 1}
+
+Comparison of models
+
+\textbf{Fig. 4.} Value of array after ﬁtting cosine similarity on the
+dataset.
+
+\textbf{Fig. 5.} Output for NB algorithm.
+
+\textbf{Fig. 6.} Output by SVC.
+
+SVM (Proposed) 0.9863 0.98278 0.9937 0.984
+
+Bernoulli's Naive Bayes(E\textsc{x}isting)
+\protect\hyperlink{_bookmark31}{{[}11{]}} 0.875 0.884 0.8633 0.8735
+
+Multinomial NB(E\textsc{x}isting)
+\protect\hyperlink{_bookmark31}{{[}11{]}} 0.885 0.9294 0.8333 0.8787
+
+SVM(E\textsc{x}isting) \protect\hyperlink{_bookmark31}{{[}11{]}} 0.8733
+0.859 0.8933 0.8753
+
+NB(E\textsc{x}isting) \protect\hyperlink{_bookmark25}{{[}5{]}} 0.8183
+0.84 0.79 0.82
+
+SVM(E\textsc{x}isting) \protect\hyperlink{_bookmark25}{{[}5{]}} 0.8745
+0.87 0.88 0.88
+
+Random Forest (E\textsc{x}isting)
+\protect\hyperlink{_bookmark25}{{[}5{]}} 0.9601 0.93 1.00 0.96
+
+Stacked-LSTM(E\textsc{x}isting)
+\protect\hyperlink{_bookmark34}{{[}14{]}} 0.9365 0.94 0.94 -
+
+Minimal-RNN(E\textsc{x}isting) \protect\hyperlink{_bookmark34}{{[}14{]}}
+0.8564 0.86 0.86 -
+
+CNN(E\textsc{x}isting) \protect\hyperlink{_bookmark35}{{[}15{]}} 0.8915
+0.8259 0.8246 0.8253
+
+LSTM(E\textsc{x}isting) \protect\hyperlink{_bookmark35}{{[}15{]}} 0.9550
+0.9087 0.8228 0.8636
+
+The \protect\hyperlink{_bookmark12}{Table 1} shows the comparison
+between diﬀerent Accuracy, Pre- cision, Recall and AUC scores of the 2
+proposed models and 3 existing models (Bernoulli's Naïve Bayes,
+Multinomial NB, SVM) studied in
+\protect\hyperlink{_bookmark31}{{[}11{]}}, 3 existing models (SVM, NB,
+Random Forest) studied in \protect\hyperlink{_bookmark25}{{[}5{]}} 2
+existing models (Stacked-LSTM, Minimal-RNN) studied in
+\protect\hyperlink{_bookmark34}{{[}14{]}} and 2 existing models (CNN,
+LSTM) studied in \protect\hyperlink{_bookmark35}{{[}15{]}}.
+
+Proposed SVM model is better than NB in all parameters. The
+\protect\hyperlink{_bookmark16}{Fig. 7} shows the ROC Curves between the
+2 algorithms.
+
+One of the examples that taken for the study is the movie Spectre.
+
+Through the Cosine Similarity algorithm, predictions of 5 other movies -
+Quantum of Solace, Never Say Never Again, Skyfall, Thunder- ball, From
+Russia with Love were made.
+
+\protect\hyperlink{_bookmark17}{Fig. 8}, shows the reviews about the
+movie - Spectre, entered by the user. Web scraping is used to get the
+taglines of the reviews. Web scrap- ing is performed from the IMDB
+website and perform Sentiment Analysis on it using the NB and SVC
+algorithm.
+
+After performing Sentiment Analysis,
+(\protect\hyperlink{_bookmark18}{Figs. 9},
+\protect\hyperlink{_bookmark19}{11}), one can tell whether it is a good
+movie or not. Algorithm 1: Clear the accuracy results obtained by using
+10 classifiers and select the maximum accuracy.
+
+Algorithm 2: Determine the maximum accuracy achieved by combining two
+classifiers. Algorithm 3: Identify the maximum accuracy obtained by
+combining three classifiers.
+
+So, the review `Enjoyable installment in Bond series with lots of noisy
+action, thrills, emotion and spectacular scenes' gets assigned a value 1
+which is the interpretation of a good review to the movie.
+
+Another review `the James Bond franchise should have ended decades ago'
+gets assigned a value 0 which is the interpretation of a bad review to
+the movie.
+\end{quote}
+
+Comparison between the SVC and Naive Bayes (NB) algorithms in terms of
+accuracy shows that the accuracy of SVC is higher in all two figures
+(1,2).
+
+1:\includegraphics[width=4.10897in,height=2.24153in]{media/image7.png}
+
+2:
+
+\includegraphics[width=3.96795in,height=2.49722in]{media/image8.png}
+
+\begin{quote}
+\includegraphics[width=4.66667in,height=3.21143in]{media/image9.jpeg}\protect\hypertarget{_bookmark16}{}{}\textbf{Fig.
+7.} ROC Curves.
+
+\includegraphics[width=4.66667in,height=2.33429in]{media/image10.jpeg}\protect\hypertarget{_bookmark17}{}{}\textbf{Fig.
+8.} Prediction of movies using the cosine similarity algorithm.
+
+\includegraphics[width=4.66667in,height=2.29714in]{media/image11.png}\protect\hypertarget{_bookmark18}{}{}\textbf{Fig.
+9.} Sentiment analysis on reviews using NB algo- rithm.
+\end{quote}
+
+\hypertarget{visualizing-confusion}{%
+\section{\texorpdfstring{\textbf{Visualizing
+Confusion}}{Visualizing Confusion}}\label{visualizing-confusion}}
+
+\includegraphics[width=6.22917in,height=4.31537in]{media/image12.png}
+
+\begin{quote}
+\includegraphics[width=4.66667in,height=2.28857in]{media/image13.png}\protect\hypertarget{_bookmark19}{}{}\textbf{Fig.
+11.} Sentiment analysis on reviews using SVC.
+\end{quote}
+
+\textbf{Fig12: Results before the modification:}
+
+\includegraphics[width=3.29167in,height=2in]{media/image14.png}
+
+\textbf{Fig13: Results after the modification:}
+
+\includegraphics[width=3.99167in,height=2.05in]{media/image15.png}
+
+Algorithm 1: Apply ten classifiers.
+
+\begin{quote}
+\includegraphics[width=6.32639in,height=3.64583in]{media/image16.png}
+\end{quote}
+
+Algorithm 2: combine two classifiers.
+
+\includegraphics[width=7.39583in,height=0.55in]{media/image17.png}
+
+Algorithm 3: combine three classifiers.
+
+\includegraphics[width=7.39583in,height=0.50903in]{media/image18.png}
+
+\hypertarget{pseudocode}{%
+\subsection{Pseudocode}\label{pseudocode}}
+
+IMPORT NECESSARY LIBRARIES
+
+LOAD MOVIE DATA FROM CSV FILES
+
+MERGE TWO DATASETS BASED ON TITLE COLUMN
+
+SELECT ESSENTIAL COLUMNS AND DROP UNNECESSARY ONES
+
+DEFINE FUNCTION TO EXTRACT NAMES FROM JSON OBJECTS
+
+APPLY THIS FUNCTION TO GENRES, KEYWORDS, AND CAST COLUMNS
+
+DROP NA VALUES IN THE DATASET
+
+DEFINE FUNCTION TO FETCH DIRECTOR NAME FROM CREW COLUMN
+
+APPLY THIS FUNCTION TO CREW COLUMN
+
+PROCESS OVERVIEW COLUMN BY SPLITTING INTO INDIVIDUAL WORDS
+
+COMBINE ALL COLUMNS INTO A SINGLE TAGS COLUMN
+
+CREATE NEW DATASET WITH ONLY ESSENTIAL COLUMNS
+
+TRANSFORM TAGS COLUMN INTO VECTOR FORMAT USING TF-IDF VECTORIZER
+
+DEFINE RECOMMENDATION SYSTEM FUNCTION
+
+CALCULATE SIMILARITY BETWEEN MOVIES USING COSINE SIMILARITY
+
+RETURN TOP 5 RECOMMENDED MOVIES FOR GIVEN INPUT MOVIE
+
+LOAD REVIEWS DATA FROM TEXT FILE
+
+PREPROCESS REVIEWS DATA BY APPLYING TF-IDF VECTORIZER
+
+PERFORM GRID SEARCH TO FIND BEST PARAMETERS FOR XGBOOST CLASSIFIER
+
+TRAIN XGBOOST CLASSIFIER ON PREPROCESSED REVIEWS DATA
+
+EVALUATE MODEL PERFORMANCE USING ACCURACY, F1 SCORE, PRECISION, AND
+RECALL
+
+DRAW ROC CURVE AND CONFUSION MATRIX FOR MODEL EVALUATION
+
+DEFINE PIPELINE FOR GRID SEARCH AND MODEL TRAINING
+
+PERFORM GRID SEARCH TO FIND BEST PARAMETERS FOR SVC CLASSIFIER
+
+TRAIN SVC CLASSIFIER ON PREPROCESSED REVIEWS DATA
+
+EVALUATE MODEL PERFORMANCE USING ACCURACY, F1 SCORE, PRECISION, AND
+RECALL
+
+DRAW ROC CURVE AND CONFUSION MATRIX FOR MODEL EVALUATION
+
+COMPARE PERFORMANCE OF XGBOOST AND SVC CLASSIFIERS USING
+CROSS-VALIDATION
+
+DRAW BOX PLOT TO COMPARE ALGORITHMS
+
+DEFINE FUNCTION TO GET IMDB REVIEWS FOR GIVEN MOVIE TITLE
+
+FETCH IMDB REVIEWS USING IMDbPY LIBRARY
+
+PREPROCESS REVIEWS DATA BY APPLYING TF-IDF VECTORIZER
+
+PREDICT REVIEW SENTIMENT USING TRAINED MODELS
+
+PRINT RESULTS
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item ~
+  \hypertarget{flowchart}{%
+  \subsection{Flowchart}\label{flowchart}}
+\item ~
+  \hypertarget{conclusion}{%
+  \subsection{Conclusion}\label{conclusion}}
+\end{enumerate}
+
+\hypertarget{this-paper-presents-a-comprehensive-analysis-of-two-key-components-the-movie-recommendation-system-and-sentiment-analysis.-through-rigorous-testing-and-evaluation-important-insights-and-conclusions-have-been-drawn.-the-movie-recommendation-system-utilizes-the-cosine-similarity-algorithm-to-suggest-relevant-movies-based-on-various-factors-such-as-genre-overview-cast-and-ratings.-despite-multiple-tests-cosine-similarity-consistently-delivers-accurate-movie-recommendations-showcasing-its-reliability.-in-the-realm-of-sentiment-analysis-the-study-employs-two-algorithms-nauxefve-bayes-nb-and-support-vector-machine-svc-to-classify-reviews-as-positive-or-negative.-given-the-diverse-nature-of-reviews-determining-the-optimal-algorithm-for-classification-is-crucial.-experimental-results-reveal-that-svc-demonstrates-slightly-better-accuracy-compared-to-nb.-several-avenues-for-future-research-are-identified-enhancing-the-accuracy-of-sentiment-analysis-to-effectively-classify-sarcastic-or-ironic-reviews.-extending-sentiment-analysis-to-reviews-in-languages-other-than-english.-tailoring-movie-recommendations-based-on-users-preferences-including-cast-genre-and-release-year.-despite-its-accuracy-the-system-has-limitations.-failure-to-recommend-movies-occurs-when-the-users-input-does-not-match-the-dataset-format.-additionally-linguistic-barriers-restrict-sentiment-analysis-to-english-reviews-only.-moreover-misclassification-may-occur-in-the-presence-of-sarcastic-or-ironic-reviews.-furthermore-the-study-explores-the-utilization-of-10-classifiers-with-k-nearest-neighbors-knn-achieving-the-lowest-accuracy-of-96.749-while-adaboostclassifier-demonstrates-the-highest-accuracy-of-99.061.-employing-voting-ensembles-with-paired-classifiers-reveals-insightful-performance-metrics-with-the-combination-of-knn-and-svc-yielding-a-minimum-accuracy-of-97.471-and-adaboostclassifier-and-gradientboostingclassifier-achieving-the-highest-accuracy-of-99.205.-additionally-utilizing-three-classifiers-decision-tree-extratreesclassifier-and-adaboostclassifier-showcases-remarkable-performance-with-adaboostclassifier-achieving-a-maximum-accuracy-of-99.422.-these-findings-underscore-the-importance-of-recommending-the-highest-accuracy-classifiers-for-user-utilization-enhancing-overall-system-efficiency.}{%
+\subsection{\texorpdfstring{\textbf{This paper presents a comprehensive
+analysis of two key components: the Movie Recommendation System and
+Sentiment Analysis. Through rigorous testing and evaluation, important
+insights and conclusions have been drawn. The Movie Recommendation
+System utilizes the Cosine Similarity algorithm to suggest relevant
+movies based on various factors such as genre, overview, cast, and
+ratings. Despite multiple tests, Cosine Similarity consistently delivers
+accurate movie recommendations, showcasing its reliability. In the realm
+of Sentiment Analysis, the study employs two algorithms, Naïve Bayes
+(NB) and Support Vector Machine (SVC), to classify reviews as positive
+or negative. Given the diverse nature of reviews, determining the
+optimal algorithm for classification is crucial. Experimental results
+reveal that SVC demonstrates slightly better accuracy compared to NB.
+Several avenues for future research are identified: Enhancing the
+accuracy of Sentiment Analysis to effectively classify sarcastic or
+ironic reviews. Extending Sentiment Analysis to reviews in languages
+other than English. Tailoring movie recommendations based on users'
+preferences, including cast, genre, and release year. Despite its
+accuracy, the system has limitations. Failure to recommend movies occurs
+when the user's input does not match the dataset format. Additionally,
+linguistic barriers restrict Sentiment Analysis to English reviews only.
+Moreover, misclassification may occur in the presence of sarcastic or
+ironic reviews. Furthermore, the study explores the utilization of 10
+classifiers, with K-Nearest Neighbors (KNN) achieving the lowest
+accuracy of 96.749\%, while AdaBoostClassifier demonstrates the highest
+accuracy of 99.061\%. Employing voting ensembles with paired classifiers
+reveals insightful performance metrics, with the combination of KNN and
+SVC yielding a minimum accuracy of 97.471\%, and AdaBoostClassifier and
+GradientBoostingClassifier achieving the highest accuracy of 99.205\%.
+Additionally, utilizing three classifiers, 'Decision Tree',
+'ExtraTreesClassifier', and 'AdaBoostClassifier', showcases remarkable
+performance, with AdaBoostClassifier achieving a maximum accuracy of
+99.422\%. These findings underscore the importance of recommending the
+highest accuracy classifiers for user utilization, enhancing overall
+system efficiency.}
+}{This paper presents a comprehensive analysis of two key components: the Movie Recommendation System and Sentiment Analysis. Through rigorous testing and evaluation, important insights and conclusions have been drawn. The Movie Recommendation System utilizes the Cosine Similarity algorithm to suggest relevant movies based on various factors such as genre, overview, cast, and ratings. Despite multiple tests, Cosine Similarity consistently delivers accurate movie recommendations, showcasing its reliability. In the realm of Sentiment Analysis, the study employs two algorithms, Naïve Bayes (NB) and Support Vector Machine (SVC), to classify reviews as positive or negative. Given the diverse nature of reviews, determining the optimal algorithm for classification is crucial. Experimental results reveal that SVC demonstrates slightly better accuracy compared to NB. Several avenues for future research are identified: Enhancing the accuracy of Sentiment Analysis to effectively classify sarcastic or ironic reviews. Extending Sentiment Analysis to reviews in languages other than English. Tailoring movie recommendations based on users' preferences, including cast, genre, and release year. Despite its accuracy, the system has limitations. Failure to recommend movies occurs when the user's input does not match the dataset format. Additionally, linguistic barriers restrict Sentiment Analysis to English reviews only. Moreover, misclassification may occur in the presence of sarcastic or ironic reviews. Furthermore, the study explores the utilization of 10 classifiers, with K-Nearest Neighbors (KNN) achieving the lowest accuracy of 96.749\%, while AdaBoostClassifier demonstrates the highest accuracy of 99.061\%. Employing voting ensembles with paired classifiers reveals insightful performance metrics, with the combination of KNN and SVC yielding a minimum accuracy of 97.471\%, and AdaBoostClassifier and GradientBoostingClassifier achieving the highest accuracy of 99.205\%. Additionally, utilizing three classifiers, 'Decision Tree', 'ExtraTreesClassifier', and 'AdaBoostClassifier', showcases remarkable performance, with AdaBoostClassifier achieving a maximum accuracy of 99.422\%. These findings underscore the importance of recommending the highest accuracy classifiers for user utilization, enhancing overall system efficiency. }}\label{this-paper-presents-a-comprehensive-analysis-of-two-key-components-the-movie-recommendation-system-and-sentiment-analysis.-through-rigorous-testing-and-evaluation-important-insights-and-conclusions-have-been-drawn.-the-movie-recommendation-system-utilizes-the-cosine-similarity-algorithm-to-suggest-relevant-movies-based-on-various-factors-such-as-genre-overview-cast-and-ratings.-despite-multiple-tests-cosine-similarity-consistently-delivers-accurate-movie-recommendations-showcasing-its-reliability.-in-the-realm-of-sentiment-analysis-the-study-employs-two-algorithms-nauxefve-bayes-nb-and-support-vector-machine-svc-to-classify-reviews-as-positive-or-negative.-given-the-diverse-nature-of-reviews-determining-the-optimal-algorithm-for-classification-is-crucial.-experimental-results-reveal-that-svc-demonstrates-slightly-better-accuracy-compared-to-nb.-several-avenues-for-future-research-are-identified-enhancing-the-accuracy-of-sentiment-analysis-to-effectively-classify-sarcastic-or-ironic-reviews.-extending-sentiment-analysis-to-reviews-in-languages-other-than-english.-tailoring-movie-recommendations-based-on-users-preferences-including-cast-genre-and-release-year.-despite-its-accuracy-the-system-has-limitations.-failure-to-recommend-movies-occurs-when-the-users-input-does-not-match-the-dataset-format.-additionally-linguistic-barriers-restrict-sentiment-analysis-to-english-reviews-only.-moreover-misclassification-may-occur-in-the-presence-of-sarcastic-or-ironic-reviews.-furthermore-the-study-explores-the-utilization-of-10-classifiers-with-k-nearest-neighbors-knn-achieving-the-lowest-accuracy-of-96.749-while-adaboostclassifier-demonstrates-the-highest-accuracy-of-99.061.-employing-voting-ensembles-with-paired-classifiers-reveals-insightful-performance-metrics-with-the-combination-of-knn-and-svc-yielding-a-minimum-accuracy-of-97.471-and-adaboostclassifier-and-gradientboostingclassifier-achieving-the-highest-accuracy-of-99.205.-additionally-utilizing-three-classifiers-decision-tree-extratreesclassifier-and-adaboostclassifier-showcases-remarkable-performance-with-adaboostclassifier-achieving-a-maximum-accuracy-of-99.422.-these-findings-underscore-the-importance-of-recommending-the-highest-accuracy-classifiers-for-user-utilization-enhancing-overall-system-efficiency.}}
+
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0001}{N.
+  Nassar, A. Jafar, Y. Rahhal, A novel deep multi-criteria collaborative
+  ﬁltering model for recommendation system, Knowl. Based Syst. 187
+  (2020) 104811.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0003}{A.
+  Beheshti, S. Yakhchi, S. Mousaeirad, S.M. Ghafari, S.R. Goluguri, M.A.
+  Edrisi, Towards cognitive recommender systems, Algorithms 13 (8)
+  (2020) 176.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0005}{S.
+  Sharma, V. Rana, M. Malhotra, Automatic recommendation system based on
+  hy- brid ﬁltering algorithm, Educ. Inf. Technol. 27 (2021) 1--16.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0007}{S.R.S.
+  Reddy, S. Nalluri, S. Kunisetti, S. Ashok, B. Venkatesh, Content-based
+  movie recommendation system using genre correlation, in: Smart
+  Intelligent Computing and Applications, Springer, Singapore, 2019, pp.
+  391--397.}
+\item
+  M. Yasen, S. Tedmori, Movies reviews sentiment analysis and
+  classiﬁcation, in: Proceedings of the IEEE Jordan International Joint
+  Conference on Elec- trical Engineering and Information Technology,
+  JEEIT, 2019, pp. 860--865,
+  doi:\href{https://doi.org/10.1109/JEEIT.2019.8717422}{10.1109/JEEIT.2019.8717422}.
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0011}{N.
+  Rajput, S. Chauhan, Analysis of various sentiment analysis techniques,
+  Int. J. Comput. Sci. Mob. Comput. 8 (2) (2019) 75--79.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0013}{Z.
+  Shaukat, A.A. Zulﬁqar, C. Xiao, M. Azeem, T. Mahmood, Sentiment
+  analysis on IMDB using lexicon and neural networks, SN Appl. Sci. 2
+  (2) (2020) 1--10.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0015}{T.
+  Widiyaningtyas, I. Hidayah, T.B. Adji, User proﬁle correlation-based
+  similarity (UPCSim) algorithm in movie recommendation system, J. Big
+  Data 8 (2021) 52.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0017}{R.H.
+  Singh, S. Maurya, T. Tripathi, T. Narula, G. Srivastav, Movie
+  recommendation system using cosine similarity and KNN, Int. J. Eng.
+  Adv. Technol. (IJEAT) 9 (5) (2020) 2--3 ISSN: 2249
+  --8958VolumeIssueJune.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0019}{S.
+  Kumar, K. De, P.P. Roy, Movie recommendation system using sentiment
+  analysis from microblogging data, IEEE Trans. Comput. Soc. Syst. 7 (4)
+  (2020) 915--923.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0020}{A.
+  Rahman, M.S. Hossen, Sentiment analysis on movie review data using
+  machine learning approach, in: Proceedings of the International
+  Conference on Bangla Speech and Language Processing (ICBSLP), IEEE,
+  2019, pp. 1--4.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0021}{S.
+  Uddin, A. Khan, M.E. Hossain, M.A. Moni, Comparing diﬀerent supervised
+  ma- chine learning algorithms for disease prediction, BMC Med. Inf.
+  Decis. Mak. 19 (1) (2019) 1--16.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0022}{S.
+  Ghosh, A. Dasgupta, A. Swetapadma, A study on support vector machine
+  based linear and non-linear pattern classiﬁcation, in: Proceedings of
+  the International Con- ference on Intelligent Sustainable Systems
+  (ICISS), IEEE, 2019, pp. 24--28.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0023}{K.
+  Dashtipour, M. Gogate, A. Adeel, H. Larijani, A. Hussain, Sentiment
+  analysis of Persian movie reviews using deep learning, Entropy 23 (5)
+  (2021) 596.}
+\item
+  \href{http://refhub.elsevier.com/S2666-285X(22)00017-6/sbref0024}{S.
+  Soubraylu, R. Rajalakshmi, Hybrid convolutional bidirectional
+  recurrent neural network based sentiment analysis on movie reviews,
+  Comput. Intell. 37 (2) (2021) 735--757.}
+\end{enumerate}
+
+\end{document}
